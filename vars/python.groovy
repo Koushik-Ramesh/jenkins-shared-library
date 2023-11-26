@@ -1,6 +1,6 @@
 def lintchecks() {
     sh "echo Starting lintchecks for ${Component}"
-    sh "mvn checkstyle:check || true"
+    sh "pylint *.py || true"
     sh "echo lintchecks completed for ${Component}"
 }
 
@@ -16,12 +16,7 @@ def call() {
                     
                 }
             }
-            stage("Code Compile") {
-                steps {
-                    sh "echo Generating Artifacts for $Component "
-                    sh "mvn clean compile"
-                }
-            }
+           
         }
     }
 }
