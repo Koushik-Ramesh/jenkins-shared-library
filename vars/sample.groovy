@@ -1,6 +1,6 @@
 // Declaring a functions
-def info() {
-    echo "I am called from the info functions"
+def info(message) {
+    echo "INFO from trainer is $message "
 }
 
-info()
+info("HELLO")
