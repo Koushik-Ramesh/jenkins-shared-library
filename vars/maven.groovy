@@ -56,7 +56,6 @@ def call() {
                         }
                     }
                 }
-            
                 stage('Generating Artifacts') {
                     steps {
                          sh "echo Artifact complete"
