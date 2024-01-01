@@ -45,14 +45,14 @@ def call() {
                     }
                     stage('Integration Testing') {
                         steps {
-                            sh "echo Starting Unit Testing"
+                            sh "echo Starting Integration Testing"
                             sh "echo Integration Testing Completed"
                         }
                     }
                     stage('Functional Testing') {
                         steps {
-                            sh "echo Starting Unit Testing"
-                            sh "echo Functional Testing Completed"
+                            sh "echo Starting Funtional Testing"
+                            sh "echo Functional Funtional Completed"
                         }
                     }
                 }
