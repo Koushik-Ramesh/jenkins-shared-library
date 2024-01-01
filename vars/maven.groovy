@@ -29,9 +29,10 @@ def call() {
             }
             stage ('Sonar Checks') {
                 steps {
-                   script{
+                    script {
+                        ARGS="-Dsonar.java.binaries=target/"
                         common.sonarChecks()
-                   }
+                    }
                 }
             }
              stage('Generating Artifacts') {
