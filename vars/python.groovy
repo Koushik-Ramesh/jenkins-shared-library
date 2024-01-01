@@ -29,6 +29,28 @@ def call() {
                    }
                 }
             }
+            stage('Test Cases') {
+                parallel {
+                    stage('Unit testing') {
+                        steps {
+                            sh "echo Starting Unit Testing"
+                            sh "echo Unit Testing Completed"
+                        }
+                    }
+                    stage('Integration Testing') {
+                        steps {
+                            sh "echo Starting Integration Testing"
+                            sh "echo Integration Testing Completed"
+                        }
+                    }
+                    stage('Functional Testing') {
+                        steps {
+                            sh "echo Starting Funtional Testing"
+                            sh "echo Functional Funtional Completed"
+                        }
+                    }
+                }
+            }
             stage('Generating Artifacts') {
                 steps {
                     sh "echo Artifact complete"
