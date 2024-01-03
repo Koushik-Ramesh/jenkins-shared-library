@@ -5,14 +5,14 @@ def lintchecks() {
     sh "node_modules/jslint/bin/jslint.js server.js || true"
     sh "echo lintchecks completed for ${Component}"
 }
-
 def call() {
     pipeline {
         agent any
         environment {
             SONAR_URL = "172.31.45.126"
+            NEXUS_URL = "172.31.37.89"
             SONAR_CRED = credentials('SONAR_CRED')
-             
+            NEXUS_CRED = credentials('NEXUS_CRED')
         }
         stages {
             stage('lint checks') {
@@ -70,9 +70,9 @@ def call() {
                 }
                 steps {
                     sh "echo Generating Artifacts"
+                    sh "curl -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${Component}-${TAG_NAME}.zip http://${NEXUS_URL}:8081/repository/${Component}-${TAG_NAME}.zip
                 }
             }
-        
         }
     }
 }
