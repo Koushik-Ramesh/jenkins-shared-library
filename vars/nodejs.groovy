@@ -70,7 +70,7 @@ def call() {
                 }
                 steps {
                     sh "echo Uploading ${Component} artifact to NEXUS"
-                    sh "curl -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${Component}-${TAG_NAME}.zip http://${NEXUS_URL}:8081/repository/${Component}-${TAG_NAME}.zip"
+                    sh "curl -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${Component}-${TAG_NAME}.zip http://${NEXUS_URL}:8081/repository/${Component}/${Component}-${TAG_NAME}.zip"
                     sh "echo Uploading ${Component} artifact to NEXUS is completed"
                 }
             }
