@@ -59,7 +59,7 @@ def call() {
                 }
                 steps { 
                     script {
-                        env.UPLOAD_STATUS=sh(returnStdout: true, script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${Component}/ | grep ${Component}-${TAG_NAME} || true")
+                        env.UPLOAD_STATUS=sh(returnStdout: true, script: "curl -L -s http://${NEXUS_URL}:8081/service/rest/repository/browse/${Component}/ | grep ${Component}-${TAG_NAME}.zip || true")
                         print UPLOAD_STATUS
                     }
                 }
