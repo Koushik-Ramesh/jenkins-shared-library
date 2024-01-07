@@ -91,7 +91,7 @@ def artifacts() {
         stage('Uploading the artifacts') {
             withCredentials([usernamePassword(credentialsId: 'NEXUS_CRED', passwordVariable: 'NEXUS_PSW', usernameVariable: 'NEXUS_USR')]) {
             sh "echo Uploading ${Component} artifact to NEXUS"
-            sh "curl -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${Component}-${TAG_NAME}.zip http://${172.31.37.89}:8081/repository/${Component}/${Component}-${TAG_NAME}.zip"
+            sh "curl -v -u ${NEXUS_USR}:${NEXUS_PSW} --upload-file ${Component}-${TAG_NAME}.zip http://172.31.37.89:8081/repository/${Component}/${Component}-${TAG_NAME}.zip"
             sh "echo Uploading ${Component} artifact to NEXUS is completed"
         }
     }
