@@ -34,7 +34,7 @@ def lintchecks() {
             sh "echo lintchecks completed for ${Component}"
         }   
         else {
-            sh " echoLint checks for frontend is in progress"
+            sh " echo Lint checks for frontend is in progress"
         }     
     } 
 }
