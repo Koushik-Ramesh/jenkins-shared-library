@@ -23,12 +23,12 @@ def lintchecks() {
             sh "node_modules/jslint/bin/jslint.js server.js || true"
             sh "echo lintchecks completed for ${Component}"
         }
-        else if (env.APPTYE == "maven") { 
+        else if (env.APPTYPE == "maven") { 
             sh "echo Starting lintchecks for ${Component}"
             sh "mvn checkstyle:check || true"
             sh "echo lintchecks completed for ${Component}"
         }
-        else if (env.APPTYE == "pylint") { 
+        else if (env.APPTYPE == "pylint") { 
             sh "echo Starting lintchecks for ${Component}"
             sh "pylint *.py || true"
             sh "echo lintchecks completed for ${Component}"
