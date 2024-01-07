@@ -1,9 +1,11 @@
-def lintchecks() {
-    sh "echo Starting lintchecks for ${Component}"
-    sh "mvn checkstyle:check || true"
-    sh "echo lintchecks completed for ${Component}"
+def call() {
+    node {
+        common.lintchecks()
+        common.sonarchecks()
+    }
 }
 
+/* Declarative pipeline
 def call() {
     pipeline {
         agent any
@@ -78,4 +80,5 @@ def call() {
         } 
     }
 }
+*/
 

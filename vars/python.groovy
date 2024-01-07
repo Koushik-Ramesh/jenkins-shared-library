@@ -1,9 +1,11 @@
-def lintchecks() {
-    sh "echo Starting lintchecks for ${Component}"
-    sh "pylint *.py || true"
-    sh "echo lintchecks completed for ${Component}"
+def call() {
+    node {
+        common.lintchecks()
+        common.sonarchecks()
+    }
 }
 
+/* Declaratoive Pipeline
 def call() {
     pipeline {
         agent any
@@ -70,3 +72,4 @@ def call() {
         }
     }
 }
+*/

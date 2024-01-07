@@ -1,10 +1,11 @@
-def lintchecks() {
-    sh "echo Installing JSlist"
-    sh "npm i jslint"
-    sh "echo Starting lintchecks for ${Component}"
-    sh "node_modules/jslint/bin/jslint.js server.js || true"
-    sh "echo lintchecks completed for ${Component}"
+def call() {
+    node {
+        common.lintchecks()
+        common.sonarchecks()
+    }
 }
+
+/* Declarative pipeline
 def call() {
     pipeline {
         agent any
@@ -89,3 +90,4 @@ def call() {
         }
     }
 }
+*/
