@@ -2,6 +2,7 @@ def call() {
     node {
         common.lintchecks()
         common.sonarchecks()
+        common.testCases()
     }
 }
 
