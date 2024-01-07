@@ -2,7 +2,7 @@ def call() {
     node {
         common.lintchecks()
         env.ARGS="-Dsonar.sources=."
-        env.NEXUS_URL="172.31.37.89"
+        git branch: 'main', url: "https://github.com/Koushik-Ramesh/${Component}.git"  
         common.sonarChecks()
         common.testCases()
         common.artifacts()
