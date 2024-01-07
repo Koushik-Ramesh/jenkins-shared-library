@@ -75,7 +75,7 @@ def artifacts() {
             else if (env.APPTYPE == "maven") {
                     sh "echo Generating Artifacts"
                     sh "mvn clean package"
-                    sh "mv target/${Component}-1.0,jar ${Component}.jar"
+                    sh "mv target/${Component}-1.0.jar ${Component}.jar"
                     sh "zip -r ${Component}-${TAG_NAME}.zip ${Component}.jar"
                 }
             else if (env.APPTYPE == "python") {
