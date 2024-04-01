@@ -1,6 +1,6 @@
 def call() {
     node {
-        git branch: 'main', url: "https://github.com/Koushik-Ramesh/${Component}.git"      
+        git branch: 'main', url: "https://github.com/Koushik-Ramesh/${COMPONENT}.git"      
         common.lintchecks()
         env.ARGS="-Dsonar.java.binaries=target/"
         common.sonarChecks()
