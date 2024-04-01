@@ -85,7 +85,7 @@ def artifacts() {
             else {
                 sh "echo Generating Artifacts...."
                 sh "cd static/"
-                sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip*"
+                sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip *"
                 sh "ls -ltr && pwd"
             }        
         }
