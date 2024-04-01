@@ -83,11 +83,11 @@ def artifacts() {
                     sh "zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirements.txt"
                 }
             else {
-                sh ```
+                sh '''
                     echo Generating Artifacts....
                     cd static/
                     zip -r ../${COMPONENT}-${TAG_NAME}.zip *
-                ```
+                '''
             }        
         }
         stage('Uploading the artifacts') {
