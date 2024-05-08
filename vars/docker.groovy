@@ -1,7 +1,7 @@
 def call() {
     node() {
     sh "rm -rf *"
-    git branch: 'main', url: "https://github.com/b55-clouddevops/${COMPONENT}.git"
+    git branch: 'main', url: "https://github.com/Koushik-Ramesh/${COMPONENT}.git"
     env.APP_TYPE=""
     common.lintChecks()
     if(env.TAG_NAME != null) {
