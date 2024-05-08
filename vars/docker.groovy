@@ -3,7 +3,7 @@ def call() {
     sh "rm -rf *"
     git branch: 'main', url: "https://github.com/Koushik-Ramesh/${COMPONENT}.git"
     env.APP_TYPE=""
-    common.lintChecks()
+    common.lintchecks()
     if(env.TAG_NAME != null) {
         stage('Generating the artifacts') {
                 if(env.APPTYPE == "nodejs") {
